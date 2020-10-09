@@ -19,7 +19,7 @@ func main() {
 	}
 	fmt.Printf(" ----- FILE LIST(MAP)\n")
 	for key, val := range list.File2PIDsMap() {
-		fmt.Printf("%s(%s): %v\n", key,  val.PIDs)
+		fmt.Printf("%s(%s): %v\n", key,  val)
 	}
 	fmt.Printf(" -----\n")
 }
