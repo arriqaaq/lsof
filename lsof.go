@@ -5,6 +5,16 @@
 // https://github.com/wheelcomplex/lsof
 //
 
+package lsof
+
+import (
+	"fmt"
+	"os"
+	"path/filepath"
+	"strconv"
+	"strings"
+)
+
 // PIDs list PIDs opened
 type PIDs map[int]struct{}
 
