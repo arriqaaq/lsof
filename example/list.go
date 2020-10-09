@@ -7,9 +7,7 @@ package main
 
 import (
 	"fmt"
-	"os"
-
-	"github.com/wheelcomplex/lsof"
+	"github.com/arriqaaq/lsof"
 )
 
 func main() {
@@ -21,30 +19,7 @@ func main() {
 	}
 	fmt.Printf(" ----- FILE LIST(MAP)\n")
 	for key, val := range list.File2PIDsMap() {
-		fmt.Printf("%s(%s): %v\n", key, val.File, val.PIDs)
+		fmt.Printf("%s(%s): %v\n", key,  val.PIDs)
 	}
-	list.Close()
-	fmt.Printf(" -----\n")
-	list, err = lsof.LsofPID(os.Getppid(), "")
-	if err != nil {
-		fmt.Printf("LsofPID failed: %s\n", err)
-		return
-	}
-	fmt.Printf(" ----- FILE LIST(%d)\n", os.Getppid())
-	for key, val := range list.File2PIDsMap() {
-		fmt.Printf("%s(%s): %v\n", key, val.File, val.PIDs)
-	}
-	list.Close()
-	fmt.Printf(" -----\n")
-	list, err = lsof.LsofPID(os.Getpid(), "")
-	if err != nil {
-		fmt.Printf("LsofPID failed: %s\n", err)
-		return
-	}
-	fmt.Printf(" ----- FILE LIST(%d)\n", os.Getpid())
-	for key, val := range list.File2PIDsMap() {
-		fmt.Printf("%s(%s): %v\n", key, val.File, val.PIDs)
-	}
-	list.Close()
 	fmt.Printf(" -----\n")
 }
