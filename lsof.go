@@ -151,3 +151,9 @@ func (l *InfoList) GetFDCountForFile(fileLoc string) (int, error) {
 	}
 	return len(res), nil
 }
+
+// File2PIDsMap return file list in map
+func (l *InfoList) File2PIDsMap(fileLoc string) map[string]PIDs {
+	return l.files
+}
+
